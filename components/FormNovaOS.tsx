@@ -1,3 +1,4 @@
+"use client";
 import { useState, type FormEvent } from "react";
 import { maquinas } from "@/dados";
 import type { Item, OrdemServico, Status, StatusItem } from "@/tipos";
@@ -23,8 +24,9 @@ export default function FormNovaOS({ onSalvar, proximoNumero }: FormNovaOSProps)
   const [pendencia, setPendencia] = useState("");
   const [diagnostico, setDiagnostico] = useState("");
   const [observacoes, setObservacoes] = useState("");
-  const [itens, setItens] = useState<Item[]>([linhaVazia()]);
-
+  const [itens, setItens] = useState<Item[]>([
+  { id: "linha-inicial", problema: "", servico: "", status: "Resolvido" },
+]);
   function adicionarItem() {
     setItens([...itens, linhaVazia()]);
   }
